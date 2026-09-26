@@ -16,7 +16,8 @@ void main() {
 
   testWidgets('send code enables after 9 digits', (tester) async {
     await tester.pumpWidget(const MaterialApp(home: LoginScreen()));
-    InkWell button() => tester.widget(find.widgetWithText(InkWell, 'Send code →'));
+    InkWell button() =>
+        tester.widget(find.widgetWithText(InkWell, 'Send code →'));
     expect(button().onTap, isNull);
     await tester.enterText(find.byType(TextField), '712480991');
     await tester.pump();

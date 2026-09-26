@@ -9,4 +9,5 @@ class RouteNames {
   static const String main = '/main';
   static const String request = '/request';
   static const String pickup = '/pickup';
+  static const String ride = '/ride';
 }

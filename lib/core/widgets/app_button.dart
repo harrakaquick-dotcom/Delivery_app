@@ -33,7 +33,13 @@ class AppButton extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: shape,
         boxShadow: enabled
-            ? [BoxShadow(color: glow, blurRadius: 18, offset: const Offset(0, 6))]
+            ? [
+                BoxShadow(
+                  color: glow,
+                  blurRadius: 18,
+                  offset: const Offset(0, 6),
+                ),
+              ]
             : null,
       ),
       child: Material(

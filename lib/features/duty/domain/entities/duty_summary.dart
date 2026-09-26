@@ -8,7 +8,11 @@ class DutyStat {
 
 /// A shortcut card under "Shift tools".
 class ShiftTool {
-  const ShiftTool({required this.name, required this.meta, required this.target});
+  const ShiftTool({
+    required this.name,
+    required this.meta,
+    required this.target,
+  });
 
   final String name;
   final String meta;

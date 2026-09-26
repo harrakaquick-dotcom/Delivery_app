@@ -62,8 +62,9 @@ class DocsScreen extends StatelessWidget {
               const SizedBox(height: 22),
               AppButton(
                 label: 'Continue to duty →',
-                onPressed: () => Navigator.of(context)
-                    .pushNamedAndRemoveUntil(RouteNames.main, (_) => false),
+                onPressed: () => Navigator.of(
+                  context,
+                ).pushNamedAndRemoveUntil(RouteNames.main, (_) => false),
               ),
             ],
           ),
@@ -110,9 +111,21 @@ class _DocRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final (bg, fg, label) = switch (doc.status) {
-      DocumentStatus.verified => (AppColors.secondaryLight, AppColors.secondary, 'Verified'),
-      DocumentStatus.inReview => (AppColors.warningLight, AppColors.warningText, 'In review'),
-      DocumentStatus.required => (AppColors.primaryLight, AppColors.primaryDark, 'Required'),
+      DocumentStatus.verified => (
+        AppColors.secondaryLight,
+        AppColors.secondary,
+        'Verified',
+      ),
+      DocumentStatus.inReview => (
+        AppColors.warningLight,
+        AppColors.warningText,
+        'In review',
+      ),
+      DocumentStatus.required => (
+        AppColors.primaryLight,
+        AppColors.primaryDark,
+        'Required',
+      ),
     };
     return AppCard(
       radius: AppSpacing.radiusMedium,

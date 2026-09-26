@@ -3,15 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('keypad fills boxes, backspace removes, full code calls back',
-      (tester) async {
+  testWidgets('keypad fills boxes, backspace removes, full code calls back', (
+    tester,
+  ) async {
     tester.view.physicalSize = const Size(390, 844);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.reset);
     var verified = 0;
-    await tester.pumpWidget(MaterialApp(
-      home: OtpScreen(phone: '712480991', onVerified: () => verified++),
-    ));
+    await tester.pumpWidget(
+      MaterialApp(
+        home: OtpScreen(phone: '712480991', onVerified: () => verified++),
+      ),
+    );
     expect(find.text('Sent to +254 712 480 991'), findsOneWidget);
 
     await tester.tap(find.text('1'));

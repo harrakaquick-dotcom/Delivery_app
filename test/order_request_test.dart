@@ -10,9 +10,13 @@ void main() {
     addTearDown(tester.view.reset);
 
     var accepted = 0;
-    await tester.pumpWidget(ProviderScope(
-      child: MaterialApp(home: OrderRequestScreen(onAccept: () => accepted++)),
-    ));
+    await tester.pumpWidget(
+      ProviderScope(
+        child: MaterialApp(
+          home: OrderRequestScreen(onAccept: () => accepted++),
+        ),
+      ),
+    );
     expect(find.text('30'), findsOneWidget);
     expect(find.text('KES 180'), findsOneWidget);
     expect(find.text('#HRK-48213'), findsOneWidget);

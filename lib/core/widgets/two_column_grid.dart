@@ -20,7 +20,9 @@ class TwoColumnGrid extends StatelessWidget {
               Expanded(child: children[i]),
               SizedBox(width: gap),
               Expanded(
-                child: i + 1 < children.length ? children[i + 1] : const SizedBox.shrink(),
+                child: i + 1 < children.length
+                    ? children[i + 1]
+                    : const SizedBox.shrink(),
               ),
             ],
           ),

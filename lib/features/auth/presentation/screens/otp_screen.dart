@@ -60,8 +60,10 @@ class _OtpScreenState extends State<OtpScreen> {
             children: [
               _BackButton(onTap: () => Navigator.of(context).maybePop()),
               const SizedBox(height: 22),
-              const Text('Enter the 4-digit code',
-                  style: AppTextStyles.displayMedium),
+              const Text(
+                'Enter the 4-digit code',
+                style: AppTextStyles.displayMedium,
+              ),
               const SizedBox(height: 6),
               Text('Sent to $_formattedPhone', style: AppTextStyles.bodyMedium),
               const SizedBox(height: 26),

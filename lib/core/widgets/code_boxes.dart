@@ -6,7 +6,12 @@ import '../constants/app_text_styles.dart';
 
 /// Row of four digit boxes; the next-to-fill box gets a red ring.
 class CodeBoxes extends StatelessWidget {
-  const CodeBoxes({super.key, required this.code, this.length = 4, this.height = 66});
+  const CodeBoxes({
+    super.key,
+    required this.code,
+    this.length = 4,
+    this.height = 66,
+  });
 
   final String code;
   final int length;
@@ -62,7 +67,10 @@ class _Box extends StatelessWidget {
       ),
       child: Text(
         char,
-        style: AppTextStyles.displayMedium.copyWith(fontSize: 26, letterSpacing: 0),
+        style: AppTextStyles.displayMedium.copyWith(
+          fontSize: 26,
+          letterSpacing: 0,
+        ),
       ),
     );
   }

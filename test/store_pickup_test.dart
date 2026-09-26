@@ -4,15 +4,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('confirm stays inert until all four lines are ticked', (tester) async {
+  testWidgets('confirm stays inert until all four lines are ticked', (
+    tester,
+  ) async {
     tester.view.physicalSize = const Size(390, 1400);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.reset);
 
     var confirmed = 0;
-    await tester.pumpWidget(ProviderScope(
-      child: MaterialApp(home: StorePickupScreen(onConfirm: () => confirmed++)),
-    ));
+    await tester.pumpWidget(
+      ProviderScope(
+        child: MaterialApp(
+          home: StorePickupScreen(onConfirm: () => confirmed++),
+        ),
+      ),
+    );
 
     expect(find.text('0 / 4 checked'), findsOneWidget);
     await tester.tap(find.text('Check every line to continue'));

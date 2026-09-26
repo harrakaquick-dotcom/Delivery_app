@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/constants/app_text_styles.dart';
+import '../../../../core/routing/route_names.dart';
 import '../../../../core/utils/formatters.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/app_card.dart';
@@ -24,6 +25,8 @@ class StorePickupScreen extends ConsumerWidget {
     final order = ref.watch(activeOrderProvider);
     final checked = ref.watch(pickupChecklistProvider);
     final allChecked = checked.length == order.lines.length;
+    void toRide() =>
+        Navigator.of(context).pushReplacementNamed(RouteNames.ride);
 
     return Scaffold(
       body: SafeArea(
@@ -32,7 +35,7 @@ class StorePickupScreen extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _StoreCard(order: order, onNavigate: onNavigate),
+              _StoreCard(order: order, onNavigate: onNavigate ?? toRide),
               Padding(
                 padding: const EdgeInsets.fromLTRB(6, 20, 6, 0),
                 child: Row(
@@ -95,7 +98,7 @@ class StorePickupScreen extends ConsumerWidget {
                 label: allChecked
                     ? 'Confirm pickup & start ride →'
                     : 'Check every line to continue',
-                onPressed: allChecked ? (onConfirm ?? () {}) : null,
+                onPressed: allChecked ? (onConfirm ?? toRide) : null,
               ),
             ],
           ),

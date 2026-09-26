@@ -126,16 +126,24 @@ class _DutyCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 6),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 11,
+                        vertical: 6,
+                      ),
                       decoration: BoxDecoration(
                         color: glass,
-                        borderRadius: BorderRadius.circular(AppSpacing.radiusPill),
+                        borderRadius: BorderRadius.circular(
+                          AppSpacing.radiusPill,
+                        ),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           online
-                              ? const PulseDot(color: Colors.white, period: Duration(milliseconds: 1600))
+                              ? const PulseDot(
+                                  color: Colors.white,
+                                  period: Duration(milliseconds: 1600),
+                                )
                               : Container(
                                   width: 7,
                                   height: 7,
@@ -146,7 +154,8 @@ class _DutyCard extends StatelessWidget {
                                 ),
                           const SizedBox(width: 7),
                           Text(
-                            (online ? 'On duty · 5h 12m' : 'Off duty').toUpperCase(),
+                            (online ? 'On duty · 5h 12m' : 'Off duty')
+                                .toUpperCase(),
                             style: AppTextStyles.chip.copyWith(
                               color: Colors.white,
                               letterSpacing: 1,
@@ -157,7 +166,9 @@ class _DutyCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 12),
                     Text(
-                      online ? '$firstName, you are online' : 'Good morning, $firstName',
+                      online
+                          ? '$firstName, you are online'
+                          : 'Good morning, $firstName',
                       style: AppTextStyles.headingLarge.copyWith(
                         fontSize: 24,
                         color: Colors.white,
@@ -243,7 +254,10 @@ class _Toggle extends StatelessWidget {
       child: Container(
         width: 26,
         height: 26,
-        decoration: const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.circle,
+        ),
       ),
     );
   }
@@ -268,7 +282,10 @@ class _ListeningCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text('Listening for orders', style: AppTextStyles.title),
-                Text('4 agents ahead of you in $zone', style: AppTextStyles.caption),
+                Text(
+                  '4 agents ahead of you in $zone',
+                  style: AppTextStyles.caption,
+                ),
               ],
             ),
           ),
@@ -280,7 +297,10 @@ class _ListeningCard extends StatelessWidget {
               foregroundColor: AppColors.textPrimary,
               side: const BorderSide(color: AppColors.borderStrong),
               shape: const StadiumBorder(),
-              textStyle: AppTextStyles.chip.copyWith(fontSize: 11, letterSpacing: 0.8),
+              textStyle: AppTextStyles.chip.copyWith(
+                fontSize: 11,
+                letterSpacing: 0.8,
+              ),
             ),
             child: const Text('SIMULATE'),
           ),
@@ -303,7 +323,10 @@ class _StatCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(stat.label.toUpperCase(), style: AppTextStyles.chip.copyWith(letterSpacing: 1)),
+          Text(
+            stat.label.toUpperCase(),
+            style: AppTextStyles.chip.copyWith(letterSpacing: 1),
+          ),
           const SizedBox(height: 7),
           Text(
             stat.value,
@@ -351,7 +374,10 @@ class _PayoutStrip extends StatelessWidget {
               minimumSize: const Size(0, 44),
               padding: const EdgeInsets.symmetric(horizontal: 16),
               shape: const StadiumBorder(),
-              textStyle: AppTextStyles.chip.copyWith(fontSize: 11, letterSpacing: 0.8),
+              textStyle: AppTextStyles.chip.copyWith(
+                fontSize: 11,
+                letterSpacing: 0.8,
+              ),
             ),
             child: const Text('DETAILS'),
           ),

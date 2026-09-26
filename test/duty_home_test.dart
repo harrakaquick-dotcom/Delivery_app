@@ -5,17 +5,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('toggle flips duty and reveals the listening card', (tester) async {
+  testWidgets('toggle flips duty and reveals the listening card', (
+    tester,
+  ) async {
     tester.view.physicalSize = const Size(390, 1200);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.reset);
 
     final container = ProviderContainer();
     addTearDown(container.dispose);
-    await tester.pumpWidget(UncontrolledProviderScope(
-      container: container,
-      child: const MaterialApp(home: Scaffold(body: DutyHomeScreen())),
-    ));
+    await tester.pumpWidget(
+      UncontrolledProviderScope(
+        container: container,
+        child: const MaterialApp(home: Scaffold(body: DutyHomeScreen())),
+      ),
+    );
 
     expect(find.text('Good morning, Brian'), findsOneWidget);
     expect(find.text('Listening for orders'), findsNothing);

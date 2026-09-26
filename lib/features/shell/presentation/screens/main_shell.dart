@@ -30,7 +30,8 @@ class MainShell extends ConsumerWidget {
           index: index,
           children: [
             DutyHomeScreen(
-              onSimulate: () => Navigator.of(context).pushNamed(RouteNames.request),
+              onSimulate: () =>
+                  Navigator.of(context).pushNamed(RouteNames.request),
             ),
             for (final t in _tabs.skip(1)) Center(child: Text(t.label)),
           ],

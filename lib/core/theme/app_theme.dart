@@ -9,29 +9,29 @@ class AppTheme {
   AppTheme._();
 
   static ThemeData get light => ThemeData(
-        primaryColor: AppColors.primary,
-        scaffoldBackgroundColor: AppColors.background,
-        colorScheme: const ColorScheme.light(
-          primary: AppColors.primary,
-          secondary: AppColors.secondary,
-          error: AppColors.error,
-          surface: AppColors.surface,
+    primaryColor: AppColors.primary,
+    scaffoldBackgroundColor: AppColors.background,
+    colorScheme: const ColorScheme.light(
+      primary: AppColors.primary,
+      secondary: AppColors.secondary,
+      error: AppColors.error,
+      surface: AppColors.surface,
+    ),
+    fontFamily: AppTextStyles.fontFamily,
+    appBarTheme: const AppBarTheme(
+      backgroundColor: AppColors.background,
+      foregroundColor: AppColors.textPrimary,
+      elevation: 0,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.primary,
+        foregroundColor: Colors.white,
+        textStyle: AppTextStyles.button,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppSpacing.radiusMedium),
         ),
-        fontFamily: AppTextStyles.fontFamily,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: AppColors.background,
-          foregroundColor: AppColors.textPrimary,
-          elevation: 0,
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.primary,
-            foregroundColor: Colors.white,
-            textStyle: AppTextStyles.button,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(AppSpacing.radiusMedium),
-            ),
-          ),
-        ),
-      );
+      ),
+    ),
+  );
 }

@@ -39,10 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(AppSpacing.xl),
-          child: SvgPicture.asset(
-            'assets/images/harraka_logo.svg',
-            width: 196,
-          ),
+          child: SvgPicture.asset('assets/images/harraka_logo.svg', width: 196),
         ),
       ),
     );

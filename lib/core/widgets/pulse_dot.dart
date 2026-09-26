@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 
 /// Small dot that pulses (fade and shrink) to signal a live state.
 class PulseDot extends StatefulWidget {
-  const PulseDot({super.key, required this.color, this.size = 7, this.period = const Duration(milliseconds: 1400)});
+  const PulseDot({
+    super.key,
+    required this.color,
+    this.size = 7,
+    this.period = const Duration(milliseconds: 1400),
+  });
 
   final Color color;
   final double size;
@@ -12,9 +17,12 @@ class PulseDot extends StatefulWidget {
   State<PulseDot> createState() => _PulseDotState();
 }
 
-class _PulseDotState extends State<PulseDot> with SingleTickerProviderStateMixin {
-  late final AnimationController _c =
-      AnimationController(vsync: this, duration: widget.period)..repeat(reverse: true);
+class _PulseDotState extends State<PulseDot>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _c = AnimationController(
+    vsync: this,
+    duration: widget.period,
+  )..repeat(reverse: true);
 
   @override
   void dispose() {
@@ -33,7 +41,10 @@ class _PulseDotState extends State<PulseDot> with SingleTickerProviderStateMixin
           child: Container(
             width: widget.size,
             height: widget.size,
-            decoration: BoxDecoration(color: widget.color, shape: BoxShape.circle),
+            decoration: BoxDecoration(
+              color: widget.color,
+              shape: BoxShape.circle,
+            ),
           ),
         ),
       ),

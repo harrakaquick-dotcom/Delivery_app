@@ -7,8 +7,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('verification lists documents and continues to the shell',
-      (tester) async {
+  testWidgets('verification lists documents and continues to the shell', (
+    tester,
+  ) async {
     tester.view.physicalSize = const Size(390, 1000);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.reset);

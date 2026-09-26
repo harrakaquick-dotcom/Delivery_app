@@ -36,7 +36,9 @@ class _LoginScreenState extends State<LoginScreen> {
           builder: (context, constraints) => SingleChildScrollView(
             padding: const EdgeInsets.fromLTRB(26, 56, 26, 30),
             child: ConstrainedBox(
-              constraints: BoxConstraints(minHeight: constraints.maxHeight - 86),
+              constraints: BoxConstraints(
+                minHeight: constraints.maxHeight - 86,
+              ),
               child: IntrinsicHeight(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,8 +50,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: AppSpacing.md),
                     const _AgentChip(),
                     const SizedBox(height: 34),
-                    const Text('Sign in to your shift',
-                        style: AppTextStyles.displayMedium),
+                    const Text(
+                      'Sign in to your shift',
+                      style: AppTextStyles.displayMedium,
+                    ),
                     const SizedBox(height: AppSpacing.sm),
                     ConstrainedBox(
                       constraints: BoxConstraints(maxWidth: 290),
@@ -70,8 +74,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     AppButton(
                       label: 'Send code →',
                       onPressed: valid
-                          ? () => Navigator.of(context)
-                              .pushNamed(RouteNames.otp, arguments: _phone.text)
+                          ? () => Navigator.of(
+                              context,
+                            ).pushNamed(RouteNames.otp, arguments: _phone.text)
                           : null,
                     ),
                     const SizedBox(height: AppSpacing.md),
@@ -135,7 +140,11 @@ class _PhoneField extends StatelessWidget {
         border: Border.all(color: AppColors.borderStrong),
         borderRadius: BorderRadius.circular(16),
         boxShadow: const [
-          BoxShadow(color: Color(0x0A1A1A1A), blurRadius: 2, offset: Offset(0, 1)),
+          BoxShadow(
+            color: Color(0x0A1A1A1A),
+            blurRadius: 2,
+            offset: Offset(0, 1),
+          ),
         ],
       ),
       child: Row(
