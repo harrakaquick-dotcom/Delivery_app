@@ -41,8 +41,9 @@ class MainShell extends ConsumerWidget {
                     Navigator.of(context).pushNamed(RouteNames.cash);
                   case ShiftToolTarget.incentives:
                     Navigator.of(context).pushNamed(RouteNames.done);
-                  case ShiftToolTarget.slots:
                   case ShiftToolTarget.support:
+                    Navigator.of(context).pushNamed(RouteNames.support);
+                  case ShiftToolTarget.slots:
                     break;
                 }
               },
@@ -52,7 +53,10 @@ class MainShell extends ConsumerWidget {
             const OrdersScreen(),
             const EarningsScreen(),
             const NotificationsScreen(),
-            const ProfileScreen(),
+            ProfileScreen(
+              onOpenHelp: () =>
+                  Navigator.of(context).pushNamed(RouteNames.support),
+            ),
           ],
         ),
       ),

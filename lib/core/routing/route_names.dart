@@ -13,4 +13,5 @@ class RouteNames {
   static const String deliver = '/deliver';
   static const String cash = '/cash';
   static const String done = '/done';
+  static const String support = '/support';
 }

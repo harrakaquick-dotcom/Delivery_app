@@ -9,6 +9,7 @@ import '../../features/delivery/presentation/screens/order_completed_screen.dart
 import '../../features/delivery/presentation/screens/order_request_screen.dart';
 import '../../features/delivery/presentation/screens/ride_screen.dart';
 import '../../features/delivery/presentation/screens/store_pickup_screen.dart';
+import '../../features/support/presentation/screens/support_screen.dart';
 import '../../features/shell/presentation/screens/main_shell.dart';
 import '../../features/splash/presentation/screens/splash_screen.dart';
 import 'route_names.dart';
@@ -46,6 +47,8 @@ class AppRouter {
         return const CollectPaymentScreen();
       case RouteNames.done:
         return const OrderCompletedScreen();
+      case RouteNames.support:
+        return SupportScreen(orderId: settings.arguments as String?);
       case RouteNames.splash:
       default:
         return const SplashScreen();

@@ -142,7 +142,12 @@ class RideScreen extends ConsumerWidget {
                           icon: Icons.chat_bubble_outline,
                           background: AppColors.surface,
                           foreground: AppColors.textPrimary,
-                          onTap: onMessage ?? () {},
+                          onTap:
+                              onMessage ??
+                              () => Navigator.of(context).pushNamed(
+                                RouteNames.support,
+                                arguments: order.id,
+                              ),
                         ),
                       ],
                     ),
