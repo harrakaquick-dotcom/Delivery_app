@@ -5,6 +5,7 @@ import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/auth/presentation/screens/otp_screen.dart';
 import '../../features/delivery/presentation/screens/collect_payment_screen.dart';
 import '../../features/delivery/presentation/screens/hand_over_screen.dart';
+import '../../features/delivery/presentation/screens/order_completed_screen.dart';
 import '../../features/delivery/presentation/screens/order_request_screen.dart';
 import '../../features/delivery/presentation/screens/ride_screen.dart';
 import '../../features/delivery/presentation/screens/store_pickup_screen.dart';
@@ -43,6 +44,8 @@ class AppRouter {
         return const HandOverScreen();
       case RouteNames.cash:
         return const CollectPaymentScreen();
+      case RouteNames.done:
+        return const OrderCompletedScreen();
       case RouteNames.splash:
       default:
         return const SplashScreen();

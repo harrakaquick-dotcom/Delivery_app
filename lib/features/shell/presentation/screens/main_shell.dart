@@ -32,8 +32,14 @@ class MainShell extends ConsumerWidget {
           children: [
             DutyHomeScreen(
               onOpenTool: (target) {
-                if (target == ShiftToolTarget.cash) {
-                  Navigator.of(context).pushNamed(RouteNames.cash);
+                switch (target) {
+                  case ShiftToolTarget.cash:
+                    Navigator.of(context).pushNamed(RouteNames.cash);
+                  case ShiftToolTarget.incentives:
+                    Navigator.of(context).pushNamed(RouteNames.done);
+                  case ShiftToolTarget.slots:
+                  case ShiftToolTarget.support:
+                    break;
                 }
               },
               onSimulate: () =>
