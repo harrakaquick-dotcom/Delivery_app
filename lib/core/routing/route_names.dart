@@ -8,4 +8,5 @@ class RouteNames {
   static const String docs = '/docs';
   static const String main = '/main';
   static const String request = '/request';
+  static const String pickup = '/pickup';
 }

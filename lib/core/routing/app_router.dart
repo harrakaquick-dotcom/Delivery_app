@@ -4,6 +4,7 @@ import '../../features/auth/presentation/screens/docs_screen.dart';
 import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/auth/presentation/screens/otp_screen.dart';
 import '../../features/delivery/presentation/screens/order_request_screen.dart';
+import '../../features/delivery/presentation/screens/store_pickup_screen.dart';
 import '../../features/shell/presentation/screens/main_shell.dart';
 import '../../features/splash/presentation/screens/splash_screen.dart';
 import 'route_names.dart';
@@ -31,6 +32,8 @@ class AppRouter {
         return const MainShell();
       case RouteNames.request:
         return const OrderRequestScreen();
+      case RouteNames.pickup:
+        return const StorePickupScreen();
       case RouteNames.splash:
       default:
         return const SplashScreen();

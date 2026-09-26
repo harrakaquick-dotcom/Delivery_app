@@ -7,6 +7,7 @@ import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/constants/app_text_styles.dart';
 import '../../../../core/utils/formatters.dart';
+import '../../../../core/routing/route_names.dart';
 import '../providers/delivery_providers.dart';
 
 /// The one full-red screen: countdown, payout and both legs of the trip.
@@ -39,6 +40,11 @@ class _OrderRequestScreenState extends ConsumerState<OrderRequestScreen> {
     });
   }
 
+  void _accept() {
+    ref.read(pickupChecklistProvider.notifier).reset();
+    Navigator.of(context).pushReplacementNamed(RouteNames.pickup);
+  }
+
   @override
   void dispose() {
     _timer?.cancel();
@@ -56,7 +62,9 @@ class _OrderRequestScreenState extends ConsumerState<OrderRequestScreen> {
           builder: (context, constraints) => SingleChildScrollView(
             padding: const EdgeInsets.fromLTRB(20, 18, 20, 22),
             child: ConstrainedBox(
-              constraints: BoxConstraints(minHeight: constraints.maxHeight - 40),
+              constraints: BoxConstraints(
+                minHeight: constraints.maxHeight - 40,
+              ),
               child: IntrinsicHeight(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,10 +73,15 @@ class _OrderRequestScreenState extends ConsumerState<OrderRequestScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 7,
+                          ),
                           decoration: BoxDecoration(
                             color: Colors.white.withValues(alpha: 0.2),
-                            borderRadius: BorderRadius.circular(AppSpacing.radiusPill),
+                            borderRadius: BorderRadius.circular(
+                              AppSpacing.radiusPill,
+                            ),
                           ),
                           child: Text(
                             'NEW ORDER',
@@ -132,7 +145,9 @@ class _OrderRequestScreenState extends ConsumerState<OrderRequestScreen> {
                       padding: const EdgeInsets.all(6),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(AppSpacing.radiusLarge),
+                        borderRadius: BorderRadius.circular(
+                          AppSpacing.radiusLarge,
+                        ),
                       ),
                       child: Column(
                         children: [
@@ -140,9 +155,11 @@ class _OrderRequestScreenState extends ConsumerState<OrderRequestScreen> {
                             km: '${order.pickupKm}',
                             tileBg: AppColors.primaryLight,
                             tileFg: AppColors.primaryDark,
-                            kicker: 'Pick up · ${Formatters.km(order.pickupKm)}',
+                            kicker:
+                                'Pick up · ${Formatters.km(order.pickupKm)}',
                             title: order.storeName,
-                            subtitle: '${order.storeAddress} · packed and waiting',
+                            subtitle:
+                                '${order.storeAddress} · packed and waiting',
                           ),
                           const Divider(
                             height: 1,
@@ -165,10 +182,12 @@ class _OrderRequestScreenState extends ConsumerState<OrderRequestScreen> {
                     ),
                     const Spacer(),
                     const SizedBox(height: 18),
-                    _AcceptButton(onTap: widget.onAccept),
+                    _AcceptButton(onTap: widget.onAccept ?? _accept),
                     const SizedBox(height: 9),
                     _DeclineButton(
-                      onTap: widget.onDecline ?? () => Navigator.of(context).maybePop(),
+                      onTap:
+                          widget.onDecline ??
+                          () => Navigator.of(context).maybePop(),
                     ),
                   ],
                 ),
@@ -297,7 +316,10 @@ class _Leg extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(kicker.toUpperCase(), style: AppTextStyles.chip.copyWith(height: 1.2)),
+                Text(
+                  kicker.toUpperCase(),
+                  style: AppTextStyles.chip.copyWith(height: 1.2),
+                ),
                 const SizedBox(height: 3),
                 Text(
                   title,
@@ -307,7 +329,10 @@ class _Leg extends StatelessWidget {
                     letterSpacing: 0,
                   ),
                 ),
-                Text(subtitle, style: AppTextStyles.caption.copyWith(height: 1.45)),
+                Text(
+                  subtitle,
+                  style: AppTextStyles.caption.copyWith(height: 1.45),
+                ),
               ],
             ),
           ),
@@ -328,7 +353,11 @@ class _AcceptButton extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         boxShadow: const [
-          BoxShadow(color: Color(0x2E000000), blurRadius: 26, offset: Offset(0, 10)),
+          BoxShadow(
+            color: Color(0x2E000000),
+            blurRadius: 26,
+            offset: Offset(0, 10),
+          ),
         ],
       ),
       child: Material(

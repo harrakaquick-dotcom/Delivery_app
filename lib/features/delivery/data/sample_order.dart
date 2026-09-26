@@ -18,7 +18,11 @@ const DeliveryOrder sampleOrder = DeliveryOrder(
   dropKm: 2.1,
   orderValue: 1240,
   lines: [
-    OrderLine(name: 'Brookside Fresh Milk 1L', meta: 'Chiller · aisle A2', qty: 2),
+    OrderLine(
+      name: 'Brookside Fresh Milk 1L',
+      meta: 'Chiller · aisle A2',
+      qty: 2,
+    ),
     OrderLine(name: 'Tusker Malt 500ml', meta: 'Crate · aisle D1', qty: 4),
     OrderLine(name: 'Sukuma wiki bunch', meta: 'Fresh · aisle B4', qty: 1),
     OrderLine(name: 'Weetabix 700g', meta: 'Dry · aisle C3', qty: 1),
