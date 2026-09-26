@@ -11,6 +11,7 @@ class AppCard extends StatelessWidget {
     this.radius = 20,
     this.color = AppColors.card,
     this.borderColor = AppColors.border,
+    this.width,
   });
 
   final Widget child;
@@ -18,10 +19,12 @@ class AppCard extends StatelessWidget {
   final double radius;
   final Color color;
   final Color borderColor;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: width,
       padding: padding,
       decoration: BoxDecoration(
         color: color,

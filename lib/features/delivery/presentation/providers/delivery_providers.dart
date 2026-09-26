@@ -44,3 +44,11 @@ class DropCodeNotifier extends StateNotifier<String> {
 final dropCodeProvider = StateNotifierProvider<DropCodeNotifier, String>(
   (ref) => DropCodeNotifier(),
 );
+
+/// How the customer paid for the active order.
+final paymentModeProvider = StateProvider<PaymentMode>(
+  (ref) => PaymentMode.mpesa,
+);
+
+/// Cash the agent is carrying, in KES, before the active order is settled.
+final cashInBagProvider = StateProvider<int>((ref) => 3610);

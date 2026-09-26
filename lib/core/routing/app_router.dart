@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../features/auth/presentation/screens/docs_screen.dart';
 import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/auth/presentation/screens/otp_screen.dart';
+import '../../features/delivery/presentation/screens/collect_payment_screen.dart';
 import '../../features/delivery/presentation/screens/hand_over_screen.dart';
 import '../../features/delivery/presentation/screens/order_request_screen.dart';
 import '../../features/delivery/presentation/screens/ride_screen.dart';
@@ -40,6 +41,8 @@ class AppRouter {
         return const RideScreen();
       case RouteNames.deliver:
         return const HandOverScreen();
+      case RouteNames.cash:
+        return const CollectPaymentScreen();
       case RouteNames.splash:
       default:
         return const SplashScreen();

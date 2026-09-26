@@ -55,6 +55,9 @@ class DeliveryOrder {
   int get itemCount => lines.fold(0, (sum, l) => sum + l.qty);
   int get totalEarned => baseFare + distancePay + tip;
 
+  /// Reference without the leading hash, e.g. `HRK-48213`.
+  String get reference => id.replaceFirst('#', '');
+
   /// Order number without the `HRK-` prefix, e.g. `48213`.
   String get shortId => id.replaceFirst('#HRK-', '');
 }

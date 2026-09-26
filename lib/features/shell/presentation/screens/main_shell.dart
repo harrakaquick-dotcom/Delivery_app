@@ -6,6 +6,7 @@ import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/constants/app_text_styles.dart';
 import '../../../../core/providers/session_providers.dart';
 import '../../../../core/routing/route_names.dart';
+import '../../../duty/domain/entities/duty_summary.dart';
 import '../../../duty/presentation/screens/duty_home_screen.dart';
 
 /// Tab shell holding the five main screens behind the bottom bar.
@@ -30,6 +31,11 @@ class MainShell extends ConsumerWidget {
           index: index,
           children: [
             DutyHomeScreen(
+              onOpenTool: (target) {
+                if (target == ShiftToolTarget.cash) {
+                  Navigator.of(context).pushNamed(RouteNames.cash);
+                }
+              },
               onSimulate: () =>
                   Navigator.of(context).pushNamed(RouteNames.request),
             ),

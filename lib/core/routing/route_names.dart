@@ -12,4 +12,5 @@ class RouteNames {
   static const String ride = '/ride';
   static const String deliver = '/deliver';
   static const String cash = '/cash';
+  static const String done = '/done';
 }
