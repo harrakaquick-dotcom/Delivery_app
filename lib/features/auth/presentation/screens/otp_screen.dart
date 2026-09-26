@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/constants/app_text_styles.dart';
+import '../../../../core/routing/route_names.dart';
+import '../../../../core/widgets/code_boxes.dart';
 import '../../../../core/widgets/numeric_keypad.dart';
 
 /// OTP entry: four boxes driven by an on-screen keypad.
@@ -12,7 +14,7 @@ class OtpScreen extends StatefulWidget {
   /// Local 9-digit number, e.g. `712480991`.
   final String phone;
 
-  /// Called once all four digits are entered.
+  /// Called once all four digits are entered. Defaults to opening verification.
   final VoidCallback? onVerified;
 
   @override
@@ -32,7 +34,14 @@ class _OtpScreenState extends State<OtpScreen> {
   void _add(String d) {
     if (_code.length >= _length) return;
     setState(() => _code += d);
-    if (_code.length == _length) widget.onVerified?.call();
+    if (_code.length == _length) {
+      final done = widget.onVerified;
+      if (done != null) {
+        done();
+      } else {
+        Navigator.of(context).pushReplacementNamed(RouteNames.docs);
+      }
+    }
   }
 
   void _back() {
@@ -56,19 +65,7 @@ class _OtpScreenState extends State<OtpScreen> {
               const SizedBox(height: 6),
               Text('Sent to $_formattedPhone', style: AppTextStyles.bodyMedium),
               const SizedBox(height: 26),
-              Row(
-                children: [
-                  for (var i = 0; i < _length; i++) ...[
-                    if (i > 0) const SizedBox(width: 11),
-                    Expanded(
-                      child: _OtpBox(
-                        char: i < _code.length ? _code[i] : '',
-                        active: _code.length == i,
-                      ),
-                    ),
-                  ],
-                ],
-              ),
+              CodeBoxes(code: _code),
               const SizedBox(height: AppSpacing.md),
               const Text('Resend code in 0:24', style: AppTextStyles.caption),
               const Spacer(),
@@ -103,43 +100,6 @@ class _BackButton extends StatelessWidget {
           height: 40,
           child: Center(child: Text('←', style: TextStyle(fontSize: 15))),
         ),
-      ),
-    );
-  }
-}
-
-/// One digit box; the next-to-fill box gets a red ring.
-class _OtpBox extends StatelessWidget {
-  const _OtpBox({required this.char, required this.active});
-
-  final String char;
-  final bool active;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 66,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: AppColors.card,
-        borderRadius: BorderRadius.circular(AppSpacing.radiusMedium),
-        border: Border.all(
-          color: active ? AppColors.primary : AppColors.borderStrong,
-          width: 1.5,
-        ),
-        boxShadow: [
-          active
-              ? const BoxShadow(color: Color(0x1FEC3013), spreadRadius: 4)
-              : const BoxShadow(
-                  color: Color(0x0A1A1A1A),
-                  blurRadius: 2,
-                  offset: Offset(0, 1),
-                ),
-        ],
-      ),
-      child: Text(
-        char,
-        style: AppTextStyles.displayMedium.copyWith(fontSize: 26, letterSpacing: 0),
       ),
     );
   }

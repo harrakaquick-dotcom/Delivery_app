@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../features/auth/presentation/screens/docs_screen.dart';
 import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/auth/presentation/screens/otp_screen.dart';
+import '../../features/shell/presentation/screens/main_shell.dart';
 import '../../features/splash/presentation/screens/splash_screen.dart';
 import 'route_names.dart';
 
@@ -10,23 +12,25 @@ class AppRouter {
   AppRouter._();
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
+    return MaterialPageRoute<void>(
+      settings: settings,
+      builder: (_) => _screenFor(settings),
+    );
+  }
+
+  static Widget _screenFor(RouteSettings settings) {
     switch (settings.name) {
       case RouteNames.login:
-        return MaterialPageRoute<void>(
-          settings: settings,
-          builder: (_) => const LoginScreen(),
-        );
+        return const LoginScreen();
       case RouteNames.otp:
-        return MaterialPageRoute<void>(
-          settings: settings,
-          builder: (_) => OtpScreen(phone: settings.arguments as String? ?? ''),
-        );
+        return OtpScreen(phone: settings.arguments as String? ?? '');
+      case RouteNames.docs:
+        return const DocsScreen();
+      case RouteNames.main:
+        return const MainShell();
       case RouteNames.splash:
       default:
-        return MaterialPageRoute<void>(
-          settings: settings,
-          builder: (_) => const SplashScreen(),
-        );
+        return const SplashScreen();
     }
   }
 }
