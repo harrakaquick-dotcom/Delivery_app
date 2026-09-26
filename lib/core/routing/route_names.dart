@@ -10,4 +10,6 @@ class RouteNames {
   static const String request = '/request';
   static const String pickup = '/pickup';
   static const String ride = '/ride';
+  static const String deliver = '/deliver';
+  static const String cash = '/cash';
 }

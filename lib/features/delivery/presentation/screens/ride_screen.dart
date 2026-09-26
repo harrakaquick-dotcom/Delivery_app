@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_text_styles.dart';
+import '../../../../core/routing/route_names.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/app_card.dart';
 import '../../data/sample_ride.dart';
@@ -149,7 +150,14 @@ class RideScreen extends ConsumerWidget {
                   const SizedBox(height: 10),
                   AppButton(
                     label: 'I have arrived →',
-                    onPressed: onArrived ?? () {},
+                    onPressed:
+                        onArrived ??
+                        () {
+                          ref.read(dropCodeProvider.notifier).reset();
+                          Navigator.of(
+                            context,
+                          ).pushReplacementNamed(RouteNames.deliver);
+                        },
                   ),
                 ],
               ),

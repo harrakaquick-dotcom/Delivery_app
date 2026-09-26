@@ -23,3 +23,24 @@ final pickupChecklistProvider =
     StateNotifierProvider<PickupChecklistNotifier, Set<int>>(
       (ref) => PickupChecklistNotifier(),
     );
+
+/// The 4-digit code the customer reads out at hand-over.
+class DropCodeNotifier extends StateNotifier<String> {
+  DropCodeNotifier() : super('');
+
+  static const int length = 4;
+
+  void add(String digit) {
+    if (state.length < length) state = state + digit;
+  }
+
+  void backspace() {
+    if (state.isNotEmpty) state = state.substring(0, state.length - 1);
+  }
+
+  void reset() => state = '';
+}
+
+final dropCodeProvider = StateNotifierProvider<DropCodeNotifier, String>(
+  (ref) => DropCodeNotifier(),
+);
