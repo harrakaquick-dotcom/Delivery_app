@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/constants/app_text_styles.dart';
+import '../../../../core/routing/route_names.dart';
 import '../../../../core/widgets/app_button.dart';
 
 /// Sign-in screen: fleet-registered phone number only, no password.
@@ -66,8 +67,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       onChanged: (_) => setState(() {}),
                     ),
                     const Spacer(),
-                    // Navigation to the OTP screen is wired when that screen lands.
-                    AppButton(label: 'Send code →', onPressed: valid ? () {} : null),
+                    AppButton(
+                      label: 'Send code →',
+                      onPressed: valid
+                          ? () => Navigator.of(context)
+                              .pushNamed(RouteNames.otp, arguments: _phone.text)
+                          : null,
+                    ),
                     const SizedBox(height: AppSpacing.md),
                     const Text(
                       'Trouble signing in? Call the fleet desk on 0800 22 4455.',
