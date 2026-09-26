@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'bootstrap.dart';
+import 'config/env/dev.dart';
 
-import 'app.dart';
-
-void main() {
-  runApp(const ProviderScope(child: HarrakaAgentApp()));
-}
+/// Default entry point (plain `flutter run`) runs the dev environment.
+/// Use `main_staging.dart` / `main_prod.dart` for the other environments.
+void main() => bootstrap(devConfig);

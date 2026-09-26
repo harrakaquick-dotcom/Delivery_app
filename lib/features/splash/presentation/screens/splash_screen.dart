@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
@@ -35,12 +34,23 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(AppSpacing.xl),
-          child: SvgPicture.asset('assets/images/harraka_logo.svg', width: 196),
-        ),
+      backgroundColor: AppColors.splash,
+      body: Stack(
+        children: [
+          Center(
+            child: Image.asset(
+              'assets/icons/delivery_app_splash.png',
+              width: 320,
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: AppSpacing.xxl),
+              child: Image.asset('assets/icons/delivery_text.png', width: 220),
+            ),
+          ),
+        ],
       ),
     );
   }

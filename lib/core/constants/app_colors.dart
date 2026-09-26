@@ -29,6 +29,9 @@ class AppColors {
   static const Color border = Color(0xFFEEEBE9);
   static const Color borderStrong = Color(0xFFE8E5E3);
 
+  /// Splash background, matched to the edge colour of the splash artwork.
+  static const Color splash = Color(0xFFE53421);
+
   /// Delivered pill on the ink header card.
   static const Color mintOnInk = Color(0xFF8FF0BB);
   static const Color mintOnInkBg = Color(0x331FAA59);

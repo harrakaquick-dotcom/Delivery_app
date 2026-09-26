@@ -51,7 +51,7 @@ class AppRouter {
         return SupportScreen(orderId: settings.arguments as String?);
       case RouteNames.splash:
       default:
-        return const SplashScreen();
+        return const LoginScreen();
     }
   }
 }
