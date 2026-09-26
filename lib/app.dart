@@ -17,7 +17,7 @@ class HarrakaAgentApp extends ConsumerWidget {
       title: config.appName,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
-      initialRoute: RouteNames.splash,
+      initialRoute: RouteNames.login,
       onGenerateRoute: AppRouter.onGenerateRoute,
       // Non-production builds carry a corner ribbon so testers can tell them apart.
       builder: (context, child) => config.isProd

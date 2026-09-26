@@ -11,7 +11,6 @@ import '../../features/delivery/presentation/screens/ride_screen.dart';
 import '../../features/delivery/presentation/screens/store_pickup_screen.dart';
 import '../../features/support/presentation/screens/support_screen.dart';
 import '../../features/shell/presentation/screens/main_shell.dart';
-import '../../features/splash/presentation/screens/splash_screen.dart';
 import 'route_names.dart';
 
 /// Central route table for `MaterialApp.onGenerateRoute`.
@@ -27,8 +26,6 @@ class AppRouter {
 
   static Widget _screenFor(RouteSettings settings) {
     switch (settings.name) {
-      case RouteNames.login:
-        return const LoginScreen();
       case RouteNames.otp:
         return OtpScreen(phone: settings.arguments as String? ?? '');
       case RouteNames.docs:
@@ -49,7 +46,7 @@ class AppRouter {
         return const OrderCompletedScreen();
       case RouteNames.support:
         return SupportScreen(orderId: settings.arguments as String?);
-      case RouteNames.splash:
+      case RouteNames.login:
       default:
         return const LoginScreen();
     }

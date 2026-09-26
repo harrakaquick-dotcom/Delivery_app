@@ -1,16 +1,13 @@
 import 'package:delivery/app.dart';
 import 'package:delivery/features/auth/presentation/screens/login_screen.dart';
-import 'package:delivery/features/splash/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('splash moves on to sign-in', (tester) async {
+  testWidgets('app opens on the sign-in screen', (tester) async {
     await tester.pumpWidget(const ProviderScope(child: HarrakaAgentApp()));
-    expect(find.byType(SplashScreen), findsOneWidget);
-    await tester.pump(const Duration(seconds: 2));
-    await tester.pumpAndSettle();
+    await tester.pump();
     expect(find.byType(LoginScreen), findsOneWidget);
   });
 

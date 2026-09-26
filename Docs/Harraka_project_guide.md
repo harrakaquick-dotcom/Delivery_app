@@ -69,7 +69,6 @@ delivery/
 │   │   └── widgets/       # shared UI (section 5)
 │   │
 │   └── features/
-│       ├── splash/        # SplashScreen
 │       ├── auth/          # login, otp, docs (verification)
 │       ├── shell/         # MainShell: 5-tab bottom bar
 │       ├── duty/          # duty home tab
@@ -101,8 +100,7 @@ The general coding rules (3-layer features, tokens only, route + router per scre
 
 | # | Screen | Route | File |
 |---|---|---|---|
-| — | Splash | `/` | `features/splash/.../splash_screen.dart` |
-| 1 | Sign in | `/login` | `features/auth/.../login_screen.dart` |
+| 1 | Sign in (first screen) | `/login` | `features/auth/.../login_screen.dart` |
 | 2 | OTP | `/otp` (arg: 9-digit phone `String`) | `otp_screen.dart` |
 | 3 | Verification | `/docs` | `docs_screen.dart` |
 | 4–5, 11–14 | Main shell + tabs | `/main` | `features/shell/.../main_shell.dart` |
@@ -119,7 +117,7 @@ The general coding rules (3-layer features, tokens only, route + router per scre
 **Main flow:**
 
 ```
-Splash → Login → OTP → Verification → Main shell (Duty)
+Native splash → Login → OTP → Verification → Main shell (Duty)
    Duty: go online → SIMULATE → Order request (30 s countdown, Accept / Decline)
    → Store pickup (tick all 4 lines) → Ride → Hand over (4-digit code)
    → Collect payment (M-Pesa / Cash) → Completed → Back online (Duty) or Orders
@@ -195,7 +193,6 @@ Added while building the screens (not in the setup file):
 | `AppColors.primaryTint` | `#FFFAF8` | Selected rows, unread alerts |
 | `AppColors.primarySoft` / `primaryBorder` | `#F6D5CC` / `#F2C8BF` | Unfilled streak bars, tinted borders |
 | `AppColors.mintOnInk` / `mintOnInkBg` | `#8FF0BB` / 20% green | "Delivered" pill on the ink header card |
-| `AppColors.splash` | `#E53421` | Splash background (matches the artwork's edge colour) |
 | `AppTextStyles.title` / `titleSmall` | 14 / 13, weight 600 | Row and card titles |
 | `AppTextStyles.chip` | 10, weight 600, +0.09em | Chips and small uppercase kickers |
 | `AppSpacing.radius*`, `elevation*` | 14 / 18 / 22 / 26 / pill; 2 / 8 | Radii and elevations |
@@ -225,7 +222,7 @@ dart run flutter_native_splash:create
 
 - Launcher: Android + iOS, adaptive icon background `#E5301F`, foreground inset 15, iOS alpha removed.
 - Splash: colour `#E53421`, fullscreen, branding at the bottom with 48 padding, separate Android 12 block. Keep the splash colour equal to the artwork's edge colour, or a visible box appears around the image.
-- The Flutter-side `SplashScreen` reuses the same colour, image and text so there is no flash between native and Flutter splash.
+- There is **no Flutter-side splash screen**: after the native splash the app opens directly on `/login` (`initialRoute`). Do not add one — use `flutter_native_splash` only.
 - Android 12 branding images must be 800×320.
 
 There is no `flutter_launcher_icons.yaml` file — the config is in `pubspec.yaml`; if a stray template file appears in the project root it takes priority and breaks generation, so delete it.
