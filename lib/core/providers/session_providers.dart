@@ -1,5 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../models/agent_profile.dart';
+
+/// The signed-in agent.
+final agentProvider = Provider<AgentProfile>((ref) => sampleAgent);
+
 /// Whether the agent is currently on duty (accepting orders).
 final onlineProvider = StateProvider<bool>((ref) => false);
 
