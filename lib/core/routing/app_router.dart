@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../features/auth/presentation/screens/docs_screen.dart';
 import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/auth/presentation/screens/otp_screen.dart';
+import '../../features/delivery/presentation/screens/order_request_screen.dart';
 import '../../features/shell/presentation/screens/main_shell.dart';
 import '../../features/splash/presentation/screens/splash_screen.dart';
 import 'route_names.dart';
@@ -28,6 +29,8 @@ class AppRouter {
         return const DocsScreen();
       case RouteNames.main:
         return const MainShell();
+      case RouteNames.request:
+        return const OrderRequestScreen();
       case RouteNames.splash:
       default:
         return const SplashScreen();

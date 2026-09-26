@@ -7,4 +7,5 @@ class RouteNames {
   static const String otp = '/otp';
   static const String docs = '/docs';
   static const String main = '/main';
+  static const String request = '/request';
 }

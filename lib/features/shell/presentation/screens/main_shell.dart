@@ -5,6 +5,7 @@ import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/constants/app_text_styles.dart';
 import '../../../../core/providers/session_providers.dart';
+import '../../../../core/routing/route_names.dart';
 import '../../../duty/presentation/screens/duty_home_screen.dart';
 
 /// Tab shell holding the five main screens behind the bottom bar.
@@ -28,7 +29,9 @@ class MainShell extends ConsumerWidget {
         child: IndexedStack(
           index: index,
           children: [
-            const DutyHomeScreen(),
+            DutyHomeScreen(
+              onSimulate: () => Navigator.of(context).pushNamed(RouteNames.request),
+            ),
             for (final t in _tabs.skip(1)) Center(child: Text(t.label)),
           ],
         ),
