@@ -1,0 +1,8 @@
+<svg viewBox="0 0 560 160" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(0,20)">
+    <rect x="0" y="0" width="120" height="120" rx="28" fill="#E8442A"/>
+    <path d="M32 28 L32 92 L50 92 L50 68 L74 68 L74 92 L92 92 L92 28 L74 28 L74 50 L50 50 L50 28 Z" fill="#FFFFFF"/>
+    <path d="M92 28 L108 28 L92 44 Z" fill="#B8301A"/>
+  </g>
+  <text x="146" y="102" font-size="58" font-weight="600" letter-spacing="0.5" fill="#1A1A1A">harraka</text>
+</svg>
