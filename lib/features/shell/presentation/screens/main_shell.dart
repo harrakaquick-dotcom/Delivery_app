@@ -9,6 +9,7 @@ import '../../../../core/routing/route_names.dart';
 import '../../../duty/domain/entities/duty_summary.dart';
 import '../../../duty/presentation/screens/duty_home_screen.dart';
 import '../../../earnings/presentation/screens/earnings_screen.dart';
+import '../../../notifications/presentation/screens/notifications_screen.dart';
 import '../../../orders/presentation/screens/orders_screen.dart';
 
 /// Tab shell holding the five main screens behind the bottom bar.
@@ -49,7 +50,8 @@ class MainShell extends ConsumerWidget {
             ),
             const OrdersScreen(),
             const EarningsScreen(),
-            for (final t in _tabs.skip(3)) Center(child: Text(t.label)),
+            const NotificationsScreen(),
+            for (final t in _tabs.skip(4)) Center(child: Text(t.label)),
           ],
         ),
       ),
