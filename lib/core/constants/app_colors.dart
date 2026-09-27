@@ -29,6 +29,17 @@ class AppColors {
   static const Color border = Color(0xFFEEEBE9);
   static const Color borderStrong = Color(0xFFE8E5E3);
 
+  /// Delivered pill on the ink header card.
+  static const Color mintOnInk = Color(0xFF8FF0BB);
+  static const Color mintOnInkBg = Color(0x331FAA59);
+
+  /// Barely-there warm tint for selected rows.
+  static const Color primaryTint = Color(0xFFFFFAF8);
+
+  /// Soft pink used for unfilled streak segments and error-tinted borders.
+  static const Color primarySoft = Color(0xFFF6D5CC);
+  static const Color primaryBorder = Color(0xFFF2C8BF);
+
   /// Soft red glow under primary CTAs (26% primary).
   static const Color primaryShadow = Color(0x42EC3013);
 

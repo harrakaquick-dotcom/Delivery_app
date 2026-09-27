@@ -61,6 +61,30 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
     color: AppColors.textSecondary,
   );
+  static const TextStyle title = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    height: 1.3,
+    color: AppColors.textPrimary,
+  );
+  static const TextStyle titleSmall = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 13,
+    fontWeight: FontWeight.w600,
+    height: 1.3,
+    color: AppColors.textPrimary,
+  );
+
+  /// 10px uppercase text inside chips and small kickers.
+  static const TextStyle chip = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 10,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.09 * 10,
+    height: 1,
+    color: AppColors.textSecondary,
+  );
   static const TextStyle button = TextStyle(
     fontFamily: fontFamily,
     fontSize: 16,

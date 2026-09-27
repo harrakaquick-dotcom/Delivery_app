@@ -1,16 +1,18 @@
-# delivery
+# Harraka Agent
 
-A new Flutter project.
+Flutter app for Harraka delivery agents (riders). Currently a **UI-only build on dummy data** — no backend yet.
 
-## Getting Started
+## Quick start
 
-This project is a starting point for a Flutter application.
+```bash
+flutter pub get
+flutter run -t lib/main_dev.dart      # or main_staging.dart / main_prod.dart
+flutter analyze && flutter test
+```
 
-A few resources to get you started if this is your first Flutter project:
+Sign in with any 9 digits and any 4-digit code, go online on the Duty tab, then press **SIMULATE** to run a full delivery.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Docs
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **[`Docs/Harraka_project_guide.md`](Docs/Harraka_project_guide.md)** — for developers: folder structure, screens and routes, providers, environments (dev / staging / prod), app icon and splash, testing notes, and a checklist for adding a screen.
+- **[`Docs/Harraka_delivery_setup.md`](Docs/Harraka_delivery_setup.md)** — for AI coding agents: stack choices, coding rules and design tokens.
